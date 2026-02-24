@@ -1,5 +1,9 @@
 # Jeu des Jarres
 
+# Jeu des Jarres
+
+![Aperçu du jeu](assets/screenshot_jeu-des-jarres.png)
+
 Jeu PHP en ligne de commande — 3 niveaux, des jarres, des clés et des serpents.
 
 ## Lancer le jeu
