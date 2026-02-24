@@ -4,7 +4,7 @@
 echo "\n=============================\n";
 echo "         NIVEAU 3\n";
 echo "=============================\n";
-echo "Objectif : choisir une difficulté, puis trouver la clé.\n";
+echo "Objectif : choisir une difficulté, puis trouver 3 clés consécutives.\n";
 echo "-----------------------------\n";
 echo "Scores actuels :\n";
 echo "  Niveau 1 : " . ($scores['1'] ?? 'pas encore joué') . "\n";
@@ -24,10 +24,9 @@ $nbCles = 5 - $nbSerpents;
 echo "Difficulté {$difficulte} choisie : {$nbSerpents} serpent(s), {$nbCles} clé(s).\n\n";
 
 $essais = 0;
-$gagne = false;
+$clesuite = 0;
 
-while (!$gagne) {
-    // Construction des jarres
+while ($clesuite < 3) {
     $jarres = array_merge(
         array_fill(0, $nbSerpents, 'serpent'),
         array_fill(0, $nbCles, 'clé')
@@ -44,10 +43,11 @@ while (!$gagne) {
     $essais++;
 
     if ($jarres[$choix - 1] === 'serpent') {
-        echo "Aïe ! Un serpent ! Recommencez.\n\n";
+        echo "Aïe ! Un serpent ! Retour à zéro.\n\n";
+        $clesuite = 0;
     } else {
-        echo "Bravo ! Vous avez trouvé la clé !\n";
-        $gagne = true;
+        $clesuite++;
+        echo "Clés trouvées ! Bravo ! ({$clesuite}/3)\n\n";
     }
 }
 
